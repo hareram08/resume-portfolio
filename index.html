@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hare Ram | Data Analyst</title>
+  <meta name="description" content="Portfolio of Hare Ram, an MSc Statistics graduate focused on data analytics, Python, SQL, Power BI, AWS, data pipelines, and RAG applications.">
+  <meta name="author" content="Hare Ram">
+  <meta property="og:title" content="Hare Ram | Data Analyst">
+  <meta property="og:description" content="MSc Statistics graduate building practical work in Python, SQL, Power BI, AWS, data engineering, and RAG.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0c5c56">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      var storedTheme = localStorage.getItem("theme");
+      var theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (error) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hare Ram",
+    "jobTitle": "Data Analyst",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Patna University"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/hare-ram-1b5526421/",
+      "https://github.com/hareram08"
+    ],
+    "knowsAbout": ["Data Analytics", "Python", "SQL", "Power BI", "AWS", "Data Engineering", "RAG"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#home">
+        <span class="brand-mark" aria-hidden="true">HR</span>
+        Hare Ram
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Menu</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M14.5 3.1a8.8 8.8 0 1 0 6.4 13.6A8.2 8.2 0 0 1 14.5 3.1z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor"/>
+          <path d="M12 2v2.2M12 19.8V22M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2 12h2.2M19.8 12H22M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">MSc Statistics · Patna University</p>
+          <h1 id="hero-title">Hare Ram</h1>
+          <p class="role">Data Analyst | Python | SQL | Power BI | AWS</p>
+          <p class="lede">MSc graduate in Statistics with a strong quantitative foundation, focused on Data Analytics and Business Intelligence. I work with Python, SQL, Excel, Power BI, and AWS to clean, analyze, visualize, and transform data into actionable insights.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="resume/Hare_Ram_Resume.pdf" download>Download Resume</a>
+            <a class="btn btn-ghost" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/hare-ram-1b5526421/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn-ghost" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Current technical focus">
+          <p class="panel-kicker">Working with</p>
+          <ul class="focus-list">
+            <li><span>Python</span><span>Pandas · NumPy</span></li>
+            <li><span>SQL</span><span>MySQL · SQL Server</span></li>
+            <li><span>BI</span><span>Power BI · Tableau</span></li>
+            <li><span>Cloud</span><span>S3 · Lambda · RDS</span></li>
+            <li><span>Pipelines</span><span>Bronze · Silver · Gold</span></li>
+          </ul>
+          <div class="bars" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="panel-caption">Clean, analyze, visualize, report</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div class="about-copy reveal">
+          <div class="section-head">
+            <p class="kicker">01 — About</p>
+            <h2 id="about-title">About me</h2>
+          </div>
+          <p>I am Hare Ram, an MSc Statistics graduate from Patna University with a strong foundation in statistics, quantitative analysis, and data interpretation.</p>
+          <p>I am building my career in Data Analytics and enjoy working with data to discover patterns, generate insights, and support business decisions.</p>
+          <p>My current focus includes Python, SQL, Excel, Pandas, NumPy, Power BI, Tableau, AWS, data pipelines, Databricks, and RAG-based applications.</p>
+          <p>I enjoy working on practical projects involving data cleaning, exploratory data analysis, visualization, dashboards, cloud services, and data pipelines.</p>
+        </div>
+        <figure class="about-visual reveal">
+          <svg viewBox="0 0 360 240" role="img" aria-label="Abstract chart showing bars and a trend line">
+            <rect x="0" y="0" width="360" height="240" fill="none"/>
+            <g class="chart-axis">
+              <line x1="36" y1="28" x2="36" y2="196"/>
+              <line x1="36" y1="196" x2="332" y2="196"/>
+              <line x1="36" y1="150" x2="332" y2="150"/>
+              <line x1="36" y1="104" x2="332" y2="104"/>
+              <line x1="36" y1="58" x2="332" y2="58"/>
+            </g>
+            <g class="chart-bars">
+              <rect x="62" y="128" width="28" height="68" rx="4"/>
+              <rect x="108" y="96" width="28" height="100" rx="4"/>
+              <rect x="154" y="112" width="28" height="84" rx="4"/>
+              <rect x="200" y="70" width="28" height="126" rx="4"/>
+              <rect x="246" y="88" width="28" height="108" rx="4"/>
+              <rect x="292" y="54" width="28" height="142" rx="4"/>
+            </g>
+            <polyline class="chart-line" points="76,120 122,92 168,108 214,64 260,80 306,48"/>
+          </svg>
+          <figcaption class="visual-caption">A visual motif for analysis: structure the data, then follow the pattern.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="education" aria-labelledby="education-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">02 — Education</p>
+          <h2 id="education-title">Education</h2>
+        </div>
+        <article class="edu-card reveal">
+          <p class="kicker">Graduate degree</p>
+          <h3>MSc in Statistics</h3>
+          <p class="edu-school">Patna University</p>
+          <ul class="tags">
+            <li>Statistics</li>
+            <li>Quantitative Analysis</li>
+            <li>Data Interpretation</li>
+            <li>Statistical Methods</li>
+            <li>Probability</li>
+            <li>Data Analysis</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">03 — Skills</p>
+          <h2 id="skills-title">Technical skills</h2>
+          <p class="section-intro">Tools and methods I use in analysis, reporting, cloud work, and data pipelines.</p>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card reveal">
+            <p class="kicker">Programming</p>
+            <h3>Languages</h3>
+            <ul class="tags"><li>Python</li><li>SQL</li><li>R</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <p class="kicker">Data analysis</p>
+            <h3>Analysis</h3>
+            <ul class="tags"><li>Pandas</li><li>NumPy</li><li>Statistics</li><li>Data Cleaning</li><li>Exploratory Data Analysis</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <p class="kicker">Visualization &amp; BI</p>
+            <h3>Reporting</h3>
+            <ul class="tags"><li>Power BI</li><li>Tableau</li><li>Matplotlib</li><li>Seaborn</li><li>Excel</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <p class="kicker">Databases</p>
+            <h3>SQL platforms</h3>
+            <ul class="tags"><li>MySQL</li><li>SQL Server</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <p class="kicker">Cloud &amp; AWS</p>
+            <h3>Amazon Web Services</h3>
+            <ul class="tags"><li>AWS S3</li><li>AWS Lambda</li><li>Amazon RDS</li><li>Amazon EC2</li><li>Amazon VPC</li><li>IAM</li><li>CloudWatch</li><li>Route 53</li><li>AWS Certificate Manager</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <p class="kicker">Data engineering</p>
+            <h3>Pipelines</h3>
+            <ul class="tags"><li>ETL</li><li>ELT</li><li>Data Pipelines</li><li>Batch Processing</li><li>Real-Time Processing</li><li>Databricks</li><li>Bronze / Silver / Gold Architecture</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <p class="kicker">AI / GenAI</p>
+            <h3>Applied AI</h3>
+            <ul class="tags"><li>RAG</li><li>LLM Applications</li><li>PDF Question Answering</li><li>Embeddings</li><li>Vector Search</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <p class="kicker">Tools</p>
+            <h3>Daily tools</h3>
+            <ul class="tags"><li>Git</li><li>GitHub</li><li>VS Code</li><li>Jupyter Notebook</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">04 — Projects</p>
+          <h2 id="projects-title">Projects</h2>
+          <p class="section-intro">Practical work across analytics, cloud architecture, pipelines, and document question answering.</p>
+          <!-- To point a card at a repository, replace that card's GitHub href. Add a live demo with: <a class="btn btn-primary" href="YOUR_DEMO_URL">Live Demo</a> -->
+        </div>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-filter="analytics" aria-pressed="false">Analytics</button>
+          <button class="filter" type="button" data-filter="cloud" aria-pressed="false">Cloud</button>
+          <button class="filter" type="button" data-filter="engineering" aria-pressed="false">Data engineering</button>
+          <button class="filter" type="button" data-filter="ai" aria-pressed="false">AI</button>
+        </div>
+        <p class="filter-status" data-filter-status aria-live="polite"></p>
+        <div class="project-grid">
+          <article class="project reveal" data-category="analytics">
+            <p class="kicker">01 · Analytics</p>
+            <h3>Netflix Content &amp; Viewership Analysis</h3>
+            <p>An exploratory data analysis project focused on Netflix content, production trends, genres, viewership, movies vs TV shows, and audience patterns.</p>
+            <ul class="tech" aria-label="Technologies">
+              <li>Python</li><li>Pandas</li><li>NumPy</li><li>Plotly</li><li>Data Visualization</li><li>Jupyter Notebook</li>
+            </ul>
+            <div class="work">
+              <h4>Key work</h4>
+              <ul>
+                <li>Data cleaning</li>
+                <li>Exploratory data analysis</li>
+                <li>Content and genre analysis</li>
+                <li>Production trends and viewership analysis</li>
+                <li>Interactive visualizations</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="analytics">
+            <p class="kicker">02 · Analytics</p>
+            <h3>YouTube Channel Analytics</h3>
+            <p>A data analytics project that collects and analyzes YouTube channel information for Data Science, Data Analytics, and Data Engineering channels across different countries.</p>
+            <ul class="tech" aria-label="Technologies">
+              <li>Python</li><li>YouTube API</li><li>Pandas</li><li>Excel</li><li>Power BI</li>
+            </ul>
+            <div class="work">
+              <h4>Key work</h4>
+              <ul>
+                <li>Subscribers, total views, and video count</li>
+                <li>Channel category, country, and creation date</li>
+                <li>Data collection date tracking</li>
+                <li>Dashboards for channel performance and country-wise comparisons</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="analytics">
+            <p class="kicker">03 · Analytics</p>
+            <h3>Flood Data Analysis</h3>
+            <p>A data analysis project focused on compiling and analyzing flood-related information such as affected people, animals, agriculture, and other impact indicators.</p>
+            <ul class="tech" aria-label="Technologies">
+              <li>Python</li><li>Pandas</li><li>Excel</li><li>Data Cleaning</li><li>Data Visualization</li><li>Power BI</li>
+            </ul>
+            <div class="work">
+              <h4>Key work</h4>
+              <ul>
+                <li>Collect multiple datasets and compile Excel files</li>
+                <li>Clean inconsistent data and standardize columns</li>
+                <li>Analyze affected populations and agricultural impact</li>
+                <li>Create visual reports and dashboards</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="cloud">
+            <p class="kicker">04 · Cloud</p>
+            <h3>AWS S3 → Lambda → RDS Data Pipeline</h3>
+            <p>A serverless AWS proof-of-concept where uploading a file to an Amazon S3 bucket triggers a Python Lambda function. The Lambda function processes file metadata and stores the information in an Amazon RDS MySQL database.</p>
+            <p class="architecture"><span>Architecture</span>S3 → Lambda → RDS MySQL → CloudWatch</p>
+            <ul class="tech" aria-label="Technologies">
+              <li>Amazon S3</li><li>AWS Lambda</li><li>Python</li><li>Amazon RDS</li><li>MySQL</li><li>IAM</li><li>CloudWatch</li>
+            </ul>
+            <div class="work">
+              <h4>Key work</h4>
+              <ul>
+                <li>S3 ObjectCreated event and Lambda trigger</li>
+                <li>File metadata extraction and database insertion</li>
+                <li>IAM permissions and CloudWatch logging</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="cloud">
+            <p class="kicker">05 · Cloud</p>
+            <h3>AWS Public Application + Private Database VPC</h3>
+            <p>A secure AWS VPC architecture where the application is publicly accessible through an internet-facing Application Load Balancer while the application server and RDS MySQL database remain in private subnets.</p>
+            <p class="architecture"><span>Architecture</span>Internet → ALB → Private EC2 → Private RDS MySQL</p>
+            <p class="architecture"><span>Security</span>ALB-SG → App-SG → RDS-SG</p>
+            <ul class="tech" aria-label="Technologies">
+              <li>VPC</li><li>Public Subnet</li><li>Private Subnet</li><li>Application Load Balancer</li><li>EC2</li><li>RDS MySQL</li><li>Security Groups</li><li>IAM</li>
+            </ul>
+            <div class="work">
+              <h4>Key work</h4>
+              <ul>
+                <li>Public entry through an internet-facing load balancer</li>
+                <li>Application and database kept in private subnets</li>
+                <li>Security group chaining and network boundaries</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="engineering">
+            <p class="kicker">06 · Data engineering</p>
+            <h3>Databricks E-commerce Data Pipeline</h3>
+            <p>An e-commerce data pipeline following a Bronze, Silver, and Gold architecture for data ingestion, transformation, quality checks, and analytics.</p>
+            <p class="architecture"><span>Architecture</span>Raw → Bronze → Silver → Gold → Power BI</p>
+            <ul class="tech" aria-label="Technologies">
+              <li>Databricks</li><li>Python</li><li>SQL</li><li>ETL</li><li>Data Quality</li><li>Data Pipeline</li><li>Power BI</li>
+            </ul>
+            <div class="work">
+              <h4>Key work</h4>
+              <ul>
+                <li>Data ingestion and transformation</li>
+                <li>SQL analysis and data quality checks</li>
+                <li>Gold-layer analytics and BI reporting</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="ai">
+            <p class="kicker">07 · AI</p>
+            <h3>RAG PDF Question Answering</h3>
+            <p>An AI-powered Retrieval-Augmented Generation application that allows users to ask questions about PDF documents and retrieve relevant information from the documents.</p>
+            <ul class="tech" aria-label="Technologies">
+              <li>Python</li><li>RAG</li><li>LLM</li><li>Embeddings</li><li>Vector Search</li><li>PDF Processing</li>
+            </ul>
+            <div class="work">
+              <h4>Key work</h4>
+              <ul>
+                <li>Document loading and chunking</li>
+                <li>Embeddings and vector search</li>
+                <li>Retrieval and LLM response generation</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" aria-labelledby="workflow-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">05 — Workflow</p>
+          <h2 id="workflow-title">Data analytics workflow</h2>
+          <p class="section-intro">The path I follow from raw inputs to a report someone can use.</p>
+        </div>
+        <ol class="flow reveal">
+          <li><span class="step-index">01</span><strong>Data Collection</strong></li>
+          <li><span class="step-index">02</span><strong>Data Cleaning</strong></li>
+          <li><span class="step-index">03</span><strong>Exploratory Data Analysis</strong></li>
+          <li><span class="step-index">04</span><strong>Statistical Analysis</strong></li>
+          <li><span class="step-index">05</span><strong>Visualization</strong></li>
+          <li><span class="step-index">06</span><strong>Business Insights</strong></li>
+          <li><span class="step-index">07</span><strong>Dashboard / Report</strong></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="capabilities" aria-labelledby="capabilities-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">06 — Capabilities</p>
+          <h2 id="capabilities-title">What I can do</h2>
+        </div>
+        <div class="capability-grid">
+          <article class="capability reveal">
+            <p class="kicker">01</p>
+            <h3>Data Analysis</h3>
+            <p>Clean, transform, analyze, and interpret datasets.</p>
+          </article>
+          <article class="capability reveal">
+            <p class="kicker">02</p>
+            <h3>SQL</h3>
+            <p>Write queries using joins, aggregations, subqueries, CTEs, and window functions.</p>
+          </article>
+          <article class="capability reveal">
+            <p class="kicker">03</p>
+            <h3>Python</h3>
+            <p>Use Pandas, NumPy, Matplotlib, Seaborn, and Python for data analysis.</p>
+          </article>
+          <article class="capability reveal">
+            <p class="kicker">04</p>
+            <h3>Power BI</h3>
+            <p>Build interactive dashboards, KPIs, reports, and business visualizations.</p>
+          </article>
+          <article class="capability reveal">
+            <p class="kicker">05</p>
+            <h3>Statistics</h3>
+            <p>Apply descriptive statistics and statistical concepts to analyze data.</p>
+          </article>
+          <article class="capability reveal">
+            <p class="kicker">06</p>
+            <h3>Cloud</h3>
+            <p>Build practical AWS solutions using S3, Lambda, RDS, EC2, VPC, IAM, and CloudWatch.</p>
+          </article>
+          <article class="capability reveal">
+            <p class="kicker">07</p>
+            <h3>Data Pipelines</h3>
+            <p>Understand and implement ETL/ELT workflows and Bronze-Silver-Gold architectures.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning" aria-labelledby="learning-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">07 — Learning</p>
+          <h2 id="learning-title">Certifications and learning</h2>
+          <p class="section-intro">Areas I am studying alongside project work. Completed certificates will be listed here with the issuer and date.</p>
+          <!-- Example certificate item:
+          <li>AWS Cloud <span class="learn-meta">Provider · Year</span> <a href="CREDENTIAL_URL">View credential</a></li>
+          -->
+        </div>
+        <ul class="learn-list reveal">
+          <li>Data Analytics</li>
+          <li>Python for Data Analysis</li>
+          <li>SQL</li>
+          <li>Power BI</li>
+          <li>AWS Cloud</li>
+          <li>Data Engineering</li>
+          <li>RAG / Generative AI</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="resume" aria-labelledby="resume-title">
+      <div class="wrap">
+        <div class="resume-band reveal">
+          <div>
+            <p class="kicker">08 — Resume</p>
+            <h2 id="resume-title">Download my resume</h2>
+            <p>Interested in my background and projects? Download my resume to learn more about my education, technical skills, projects, and experience.</p>
+          </div>
+          <a class="btn btn-primary" href="resume/Hare_Ram_Resume.pdf" download>Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="connect" aria-labelledby="connect-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">09 — Connect</p>
+          <h2 id="connect-title">GitHub and LinkedIn</h2>
+        </div>
+        <div class="connect-grid">
+          <article class="connect-card reveal">
+            <p class="kicker">GitHub</p>
+            <h3>Code and notebooks</h3>
+            <p>Explore my projects, notebooks, SQL practice, Python code, and data analytics work.</p>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">Visit GitHub</a>
+            </div>
+          </article>
+          <article class="connect-card reveal">
+            <p class="kicker">LinkedIn</p>
+            <h3>Professional profile</h3>
+            <p>Connect with me and follow my journey in Data Analytics, Cloud, Data Engineering, and AI.</p>
+            <div class="actions">
+              <a class="btn btn-secondary" href="https://www.linkedin.com/in/hare-ram-1b5526421/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div class="contact-copy reveal">
+          <p class="kicker">10 — Contact</p>
+          <h2 id="contact-title">Let's connect</h2>
+          <p>I am open to opportunities in Data Analytics, Business Intelligence, Data Engineering, and related entry-level roles.</p>
+          <ul class="contact-list">
+            <li>Email: <a class="email-link" data-email-link href="mailto:hareram2011000@gmail.com">hareram2011000@gmail.com</a></li>
+            <li>GitHub: <a href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">github.com/hareram08</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/hare-ram-1b5526421/" target="_blank" rel="noopener noreferrer">linkedin.com/in/hare-ram-1b5526421</a></li>
+          </ul>
+        </div>
+        <form class="contact-panel reveal" data-contact-form data-site-email="hareram2011000@gmail.com" novalidate>
+          <label>Name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Message
+            <textarea name="message" required></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+          <p class="form-status" data-form-status role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <strong>Hare Ram</strong>
+        <p>Data Analyst | Python | SQL | Power BI | AWS</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/hareram08" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/hare-ram-1b5526421/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a class="email-link" data-email-link href="mailto:hareram2011000@gmail.com">Email</a></li>
+      </ul>
+      <small>© 2026 Hare Ram. All rights reserved.</small>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
