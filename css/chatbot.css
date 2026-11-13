@@ -7,7 +7,7 @@
 
 .hrc-root {
   --hrc-gap: 20px;
-  --hrc-launcher: 56px;
+  --hrc-launcher: 76px;
   font-family: var(--sans, "IBM Plex Sans", "Segoe UI", sans-serif);
   font-size: 0.95rem;
   line-height: 1.55;
@@ -29,42 +29,69 @@
   z-index: 60;
   width: var(--hrc-launcher);
   height: var(--hrc-launcher);
-  display: grid;
-  place-items: center;
-  padding: 0;
-  border: 0;
+  display: block;
+  padding: 4px;
+  border: 2px solid #f08a62;
   border-radius: 50%;
-  background: var(--accent, #3cbfb2);
-  color: var(--accent-ink, #06211e);
-  box-shadow: var(--shadow, 0 16px 40px rgba(0, 0, 0, 0.28));
+  background: #f5eee9;
+  color: #24211f;
+  box-shadow: 0 0 0 5px rgba(240, 138, 98, 0.22), 0 8px 26px rgba(0, 0, 0, 0.32);
   cursor: pointer;
-  transition: transform 160ms ease, opacity 160ms ease;
+  transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
 }
 
 .hrc-launcher:hover {
   transform: translateY(-2px);
+  box-shadow: 0 0 0 7px rgba(240, 138, 98, 0.26), 0 10px 30px rgba(0, 0, 0, 0.36);
 }
 
-.hrc-launcher svg {
+.hrc-launcher-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.hrc-launcher-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border: 2px solid #29231f;
+  border-radius: 50%;
+  background: #f4f1ed;
+  color: #29231f;
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+
+.hrc-launcher-close {
+  position: absolute;
+  inset: 4px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(15, 20, 18, 0.68);
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.hrc-launcher-close svg {
   width: 24px;
   height: 24px;
-  grid-area: 1 / 1;
-  transition: opacity 160ms ease, transform 200ms ease;
+  color: #fff;
 }
 
-.hrc-launcher .hrc-icon-close {
-  opacity: 0;
-  transform: rotate(-45deg) scale(0.7);
-}
-
-.hrc-root.is-open .hrc-launcher .hrc-icon-chat {
-  opacity: 0;
-  transform: rotate(45deg) scale(0.7);
-}
-
-.hrc-root.is-open .hrc-launcher .hrc-icon-close {
+.hrc-root.is-open .hrc-launcher-close {
   opacity: 1;
-  transform: none;
 }
 
 /* Stay out of the way of the mobile navigation menu. */
@@ -132,14 +159,11 @@ body.nav-open .hrc-root:not(.is-open) .hrc-launcher {
   flex: none;
   width: 36px;
   height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 8px;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
   background: var(--accent, #3cbfb2);
-  color: var(--accent-ink, #06211e);
-  font-family: var(--mono, ui-monospace, monospace);
-  font-size: 0.74rem;
-  font-weight: 500;
+  object-fit: cover;
 }
 
 .hrc-heading {

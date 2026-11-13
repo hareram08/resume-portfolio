@@ -77,5 +77,14 @@ const server = http.createServer((req, res) => {
 
 server.listen(port, () => {
   console.log("Portfolio running at http://localhost:" + port);
-  if (!process.env.OPENAI_API_KEY) console.log("OPENAI_API_KEY is not set: the chat will show its 'not available' message.");
+  const provider = String(process.env.CHAT_PROVIDER || (process.env.GEMINI_API_KEY ? "gemini" : "openai"))
+    .trim()
+    .toLowerCase();
+  if (provider === "gemini" && !process.env.GEMINI_API_KEY) {
+    console.log("GEMINI_API_KEY is not set: the chat will show its 'not available' message.");
+  } else if (provider === "openai" && !process.env.OPENAI_API_KEY) {
+    console.log("OPENAI_API_KEY is not set: the chat will show its 'not available' message.");
+  } else if (provider !== "gemini" && provider !== "openai") {
+    console.log("CHAT_PROVIDER must be set to 'gemini' or 'openai'.");
+  }
 });

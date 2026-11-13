@@ -166,22 +166,21 @@
 
   var root = el("div", { class: "hrc-root" });
 
-  var launcher = el(
-    "button",
-    {
-      class: "hrc-launcher",
-      type: "button",
-      "aria-label": "Open chat with " + CONFIG.name,
-      "aria-expanded": "false",
-      "aria-controls": "hrc-panel",
-    },
-    ICONS.chat + ICONS.close
-  );
+  var launcher = el("button", {
+    class: "hrc-launcher",
+    type: "button",
+    "aria-label": "Open chat with " + CONFIG.name,
+    "aria-expanded": "false",
+    "aria-controls": "hrc-panel",
+  });
+  launcher.appendChild(el("img", { class: "hrc-launcher-photo", src: "images/hare-ram.jpg", alt: "" }));
+  launcher.appendChild(el("span", { class: "hrc-launcher-badge", "aria-hidden": "true", text: "AI" }));
+  launcher.appendChild(el("span", { class: "hrc-launcher-close", "aria-hidden": "true" }, ICONS.close));
 
   var panel = el("div", { class: "hrc-panel", id: "hrc-panel", role: "dialog", "aria-label": CONFIG.name });
 
   var header = el("div", { class: "hrc-header" });
-  header.appendChild(el("div", { class: "hrc-avatar", "aria-hidden": "true", text: "AI" }));
+  header.appendChild(el("img", { class: "hrc-avatar", src: "images/hare-ram.jpg", alt: "" }));
   var heading = el("div", { class: "hrc-heading" });
   heading.appendChild(el("p", { class: "hrc-title", text: CONFIG.name }));
   heading.appendChild(el("p", { class: "hrc-subtitle", text: CONFIG.subtitle }));

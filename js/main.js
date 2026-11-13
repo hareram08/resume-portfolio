@@ -12,6 +12,81 @@
   const filterStatus = document.querySelector("[data-filter-status]");
   const form = document.querySelector("[data-contact-form]");
   const formStatus = document.querySelector("[data-form-status]");
+  const glitchCanvas = document.querySelector("[data-letter-glitch]");
+
+  if (glitchCanvas) {
+    const context = glitchCanvas.getContext("2d");
+    if (context) {
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]";
+      let cells = [];
+      let columns = 0;
+      let rows = 0;
+      let frame = 0;
+      let lastDraw = 0;
+
+      function randomGlyph() {
+        return glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+
+      function resizeGlitch() {
+        const bounds = glitchCanvas.getBoundingClientRect();
+        const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+        glitchCanvas.width = Math.ceil(bounds.width * ratio);
+        glitchCanvas.height = Math.ceil(bounds.height * ratio);
+        context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        columns = Math.ceil(bounds.width / 17);
+        rows = Math.ceil(bounds.height / 21);
+        cells = Array.from({ length: columns * rows }, () => ({
+          glyph: randomGlyph(),
+          strength: 0.2 + Math.random() * 0.28,
+        }));
+        drawGlitch();
+      }
+
+      function drawGlitch(time) {
+        if (time && time - lastDraw < 90) {
+          frame = window.requestAnimationFrame(drawGlitch);
+          return;
+        }
+        lastDraw = time || 0;
+        const bounds = glitchCanvas.getBoundingClientRect();
+        context.clearRect(0, 0, bounds.width, bounds.height);
+        context.font = "12px 'IBM Plex Mono', monospace";
+        context.textBaseline = "top";
+        context.fillStyle = getComputedStyle(root).getPropertyValue("--accent").trim() || "#0c5c56";
+
+        cells.forEach((cell, index) => {
+          if (Math.random() < 0.025) cell.glyph = randomGlyph();
+          cell.strength = Math.max(0.18, cell.strength * 0.94);
+          if (Math.random() < 0.018) cell.strength = 0.55 + Math.random() * 0.45;
+          context.globalAlpha = cell.strength;
+          context.fillText(cell.glyph, (index % columns) * 17, Math.floor(index / columns) * 21);
+        });
+
+        if (Math.random() < 0.18) {
+          context.globalAlpha = 0.18;
+          context.fillRect(0, Math.random() * bounds.height, bounds.width, 1);
+        }
+        context.globalAlpha = 1;
+
+        if (!reducedMotion.matches && !document.hidden) {
+          frame = window.requestAnimationFrame(drawGlitch);
+        }
+      }
+
+      function updateMotion() {
+        window.cancelAnimationFrame(frame);
+        drawGlitch();
+      }
+
+      const resizeObserver = new ResizeObserver(resizeGlitch);
+      resizeObserver.observe(glitchCanvas.parentElement);
+      reducedMotion.addEventListener("change", updateMotion);
+      document.addEventListener("visibilitychange", updateMotion);
+      resizeGlitch();
+    }
+  }
 
   function setTheme(theme) {
     root.setAttribute("data-theme", theme);

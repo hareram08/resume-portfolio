@@ -1,7 +1,7 @@
 # Hare Ram's AI Assistant — setup and maintenance
 
 A chat widget for hareram.website that answers questions about Hare Ram from a
-verified knowledge base, using the OpenAI API through a serverless function.
+verified knowledge base, using Gemini or OpenAI through a serverless function.
 
 ## What the inspection of the live site found
 
@@ -22,7 +22,7 @@ function (`api/chat.js`). No separate server, no framework, no npm packages.
 ## Files
 
 ```
-api/chat.js               Serverless function: validation, rate limit, OpenAI call
+api/chat.js               Serverless function: validation, rate limit, Gemini/OpenAI call
 api/_lib/knowledge.json   Everything the assistant knows (edit this to update it)
 api/_lib/prompt.js        The assistant's rules (system prompt)
 api/_lib/rate-limit.js    Per-visitor rate limiter
@@ -55,7 +55,7 @@ Folders starting with `_` inside `api/` are not turned into endpoints by Vercel.
    <script src="js/chatbot.js" defer></script>         <!-- add -->
    ```
 
-4. Add `.env` to `.gitignore` (create the file if it does not exist).
+4. `.env` is excluded from Git by the repository's `.gitignore`.
 
 No existing section, class, or script is modified. The single exception is one
 CSS rule in `chatbot.css` that gives the footer extra bottom padding on screens
@@ -63,12 +63,11 @@ narrower than 1280px, so the chat button never sits on top of the footer links.
 
 ## Deploy on Vercel
 
-1. Create an API key at https://platform.openai.com/api-keys.
-2. **Set a monthly spend limit** on the OpenAI account (Billing > Limits). This
-   is the hard ceiling on cost; see "Rate limiting" below for why it matters.
-3. Vercel dashboard > your project > Settings > Environment Variables. Add
-   `OPENAI_API_KEY` for Production (and Preview if you want it on previews).
-   Optional variables are listed in `.env.example`.
+1. Create a Gemini API key at https://aistudio.google.com/apikey.
+2. In Vercel dashboard > your project > Settings > Environment Variables, set
+   `CHAT_PROVIDER=gemini` and `GEMINI_API_KEY` for Production (and Preview if
+   needed). Optional variables are listed in `.env.example`.
+3. Review the provider's usage limits and billing settings.
 4. Commit and push (or run `vercel --prod`). Environment variables only apply
    to deployments made after they were added, so redeploy if you add the key
    afterwards.
@@ -77,11 +76,12 @@ narrower than 1280px, so the chat button never sits on top of the footer links.
 ## Run locally
 
 ```bash
-cp .env.example .env        # then put your key in .env
+cp .env.example .env         # then add your Gemini API key to .env
 node scripts/dev-server.js  # http://localhost:3000
 ```
 
 Needs Node.js 18 or newer. `vercel dev` also works if you use the Vercel CLI.
+The local `.env` file is excluded from Git; never commit or share the API key.
 
 ## Tests
 
@@ -89,8 +89,8 @@ Needs Node.js 18 or newer. `vercel dev` also works if you use the Vercel CLI.
 node --test tests/api.test.js
 ```
 
-Thirteen backend tests run against a fake OpenAI server: valid answers, system
-prompt and knowledge base are sent, follow-up context, role injection blocked,
+Backend tests use a fake OpenAI server and a mocked Gemini response: valid
+answers, system prompt and knowledge base are sent, follow-up context, role injection blocked,
 empty/malformed input, 500-character limit, history trimming, oversized
 bodies, wrong method/content type, cross-site blocking, upstream errors hidden
 from visitors, missing key, rate limiter, and knowledge-base integrity.

@@ -27,6 +27,16 @@
   "education": {
     "degree": "MSc in Statistics",
     "university": "Patna University",
+    "undergraduate_degree": "B.Sc. in Statistics",
+    "undergraduate_university": "Patna University",
+    "undergraduate_focus_areas": [
+      "Descriptive Statistics",
+      "Probability",
+      "Correlation and Regression",
+      "Linear Models",
+      "Statistical Quality Control",
+      "Operations Research"
+    ],
     "focus_areas": [
       "Statistics",
       "Quantitative Analysis",
@@ -37,8 +47,7 @@
     ],
     "not_in_portfolio": [
       "graduation year",
-      "marks or grades",
-      "undergraduate degree details"
+      "marks or grades"
     ]
   },
   "professional_experience": {

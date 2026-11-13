@@ -71,6 +71,7 @@ test.after(() => {
 });
 
 test("answers a valid question and keeps the key on the server", async () => {
+  process.env.CHAT_PROVIDER = "openai";
   upstreamMode = "ok";
   const response = await post({ messages: [user("Who is Hare Ram?")] });
   assert.strictEqual(response.status, 200);
@@ -79,6 +80,56 @@ test("answers a valid question and keeps the key on the server", async () => {
   assert.ok(!text.includes("sk-test-key-123"));
   assert.strictEqual(response.headers.get("cache-control"), "no-store");
   assert.strictEqual(lastUpstreamRequest.headers.authorization, "Bearer sk-test-key-123");
+});
+
+test("sends Gemini system instructions and maps assistant turns to model", async () => {
+  const originalFetch = global.fetch;
+  let request;
+  process.env.CHAT_PROVIDER = "gemini";
+  process.env.GEMINI_API_KEY = "gemini-test-key";
+  process.env.GEMINI_MODEL = "gemini-test-model";
+  global.fetch = async (url, options) => {
+    if (String(url) === "https://generativelanguage.googleapis.com/v1beta/interactions") {
+      request = { url: String(url), options: options };
+      return new Response(
+        JSON.stringify({
+          status: "completed",
+          steps: [{ type: "model_output", content: [{ type: "text", text: "Gemini mock answer." }] }],
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } }
+      );
+    }
+    return originalFetch(url, options);
+  };
+
+  try {
+    const response = await post({
+      messages: [user("Who is Hare Ram?"), { role: "assistant", content: "A data analyst." }, user("What are his skills?")],
+    });
+    assert.strictEqual(response.status, 200);
+    assert.deepStrictEqual(await response.json(), { reply: "Gemini mock answer." });
+    assert.strictEqual(request.url, "https://generativelanguage.googleapis.com/v1beta/interactions");
+    assert.strictEqual(request.options.headers["x-goog-api-key"], "gemini-test-key");
+    const sent = JSON.parse(request.options.body);
+    assert.strictEqual(sent.model, "gemini-test-model");
+    assert.match(sent.system_instruction, /Never invent/);
+    assert.deepStrictEqual(
+      sent.input.map((step) => step.type),
+      ["user_input", "model_output", "user_input"]
+    );
+    assert.strictEqual(sent.input[0].content[0].text, "Who is Hare Ram?");
+    assert.strictEqual(sent.store, false);
+    assert.deepStrictEqual(
+      sent.input.map((step) => step.content[0].type),
+      ["text", "text", "text"]
+    );
+    assert.strictEqual(sent.generation_config.max_output_tokens, 700);
+  } finally {
+    global.fetch = originalFetch;
+    delete process.env.GEMINI_API_KEY;
+    delete process.env.GEMINI_MODEL;
+    process.env.CHAT_PROVIDER = "openai";
+  }
 });
 
 test("sends the system prompt with the knowledge base, then the conversation", async () => {
@@ -166,6 +217,7 @@ test("hides upstream error details from the visitor", async () => {
 
 test("reports a friendly error when the API key is missing", async () => {
   const saved = process.env.OPENAI_API_KEY;
+  process.env.CHAT_PROVIDER = "openai";
   delete process.env.OPENAI_API_KEY;
   const response = await post({ messages: [user("hi")] });
   process.env.OPENAI_API_KEY = saved;
@@ -192,6 +244,17 @@ test("rate limiter blocks bursts and recovers after the window", () => {
 
 test("knowledge base holds no invented outcomes and has every required project field", () => {
   const kb = require("../api/_lib/knowledge.json");
+  assert.strictEqual(kb.education.degree, "MSc in Statistics");
+  assert.strictEqual(kb.education.undergraduate_degree, "B.Sc. in Statistics");
+  assert.strictEqual(kb.education.undergraduate_university, "Patna University");
+  assert.deepStrictEqual(kb.education.undergraduate_focus_areas, [
+    "Descriptive Statistics",
+    "Probability",
+    "Correlation and Regression",
+    "Linear Models",
+    "Statistical Quality Control",
+    "Operations Research",
+  ]);
   assert.strictEqual(kb.professional_experience.listed_in_portfolio, false);
   assert.deepStrictEqual(kb.certifications.completed_listed_in_portfolio, []);
   assert.ok(kb.projects.length >= 3);

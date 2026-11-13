@@ -82,6 +82,7 @@
 
   <main id="main">
     <section class="hero" id="home" aria-labelledby="hero-title">
+      <canvas class="hero-letter-glitch" data-letter-glitch aria-hidden="true"></canvas>
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">MSc Statistics · Patna University</p>
@@ -96,6 +97,9 @@
             <a class="btn btn-ghost" href="#contact">Contact Me</a>
           </div>
         </div>
+        <figure class="hero-portrait">
+          <img src="images/hare-ram.jpg" alt="Portrait of Hare Ram" width="768" height="768" fetchpriority="high">
+        </figure>
         <aside class="hero-panel" aria-label="Current technical focus">
           <p class="panel-kicker">Working with</p>
           <ul class="focus-list">
@@ -125,27 +129,9 @@
           <p>My current focus includes Python, SQL, Excel, Pandas, NumPy, Power BI, Tableau, AWS, data pipelines, Databricks, and RAG-based applications.</p>
           <p>I enjoy working on practical projects involving data cleaning, exploratory data analysis, visualization, dashboards, cloud services, and data pipelines.</p>
         </div>
-        <figure class="about-visual reveal">
-          <svg viewBox="0 0 360 240" role="img" aria-label="Abstract chart showing bars and a trend line">
-            <rect x="0" y="0" width="360" height="240" fill="none"/>
-            <g class="chart-axis">
-              <line x1="36" y1="28" x2="36" y2="196"/>
-              <line x1="36" y1="196" x2="332" y2="196"/>
-              <line x1="36" y1="150" x2="332" y2="150"/>
-              <line x1="36" y1="104" x2="332" y2="104"/>
-              <line x1="36" y1="58" x2="332" y2="58"/>
-            </g>
-            <g class="chart-bars">
-              <rect x="62" y="128" width="28" height="68" rx="4"/>
-              <rect x="108" y="96" width="28" height="100" rx="4"/>
-              <rect x="154" y="112" width="28" height="84" rx="4"/>
-              <rect x="200" y="70" width="28" height="126" rx="4"/>
-              <rect x="246" y="88" width="28" height="108" rx="4"/>
-              <rect x="292" y="54" width="28" height="142" rx="4"/>
-            </g>
-            <polyline class="chart-line" points="76,120 122,92 168,108 214,64 260,80 306,48"/>
-          </svg>
-          <figcaption class="visual-caption">A visual motif for analysis: structure the data, then follow the pattern.</figcaption>
+        <figure class="about-visual about-portrait reveal">
+          <img src="images/hare-ram.jpg" alt="Portrait of Hare Ram" width="768" height="768" loading="lazy" decoding="async">
+          <figcaption class="visual-caption">MSc Statistics · Data Analytics</figcaption>
         </figure>
       </div>
     </section>
@@ -156,19 +142,34 @@
           <p class="kicker">02 — Education</p>
           <h2 id="education-title">Education</h2>
         </div>
-        <article class="edu-card reveal">
-          <p class="kicker">Graduate degree</p>
-          <h3>MSc in Statistics</h3>
-          <p class="edu-school">Patna University</p>
-          <ul class="tags">
-            <li>Statistics</li>
-            <li>Quantitative Analysis</li>
-            <li>Data Interpretation</li>
-            <li>Statistical Methods</li>
-            <li>Probability</li>
-            <li>Data Analysis</li>
-          </ul>
-        </article>
+        <div class="edu-grid">
+          <article class="edu-card reveal">
+            <p class="kicker">Graduate degree</p>
+            <h3>MSc in Statistics</h3>
+            <p class="edu-school">Patna University</p>
+            <ul class="tags">
+              <li>Statistics</li>
+              <li>Quantitative Analysis</li>
+              <li>Data Interpretation</li>
+              <li>Statistical Methods</li>
+              <li>Probability</li>
+              <li>Data Analysis</li>
+            </ul>
+          </article>
+          <article class="edu-card reveal">
+            <p class="kicker">Undergraduate degree</p>
+            <h3>B.Sc. in Statistics</h3>
+            <p class="edu-school">Patna University</p>
+            <ul class="tags">
+              <li>Descriptive Statistics</li>
+              <li>Probability</li>
+              <li>Correlation &amp; Regression</li>
+              <li>Linear Models</li>
+              <li>Statistical Quality Control</li>
+              <li>Operations Research</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
